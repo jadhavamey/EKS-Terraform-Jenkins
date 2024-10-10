@@ -10,13 +10,13 @@ spec:
   selector:
     matchLabels:
       app: nginx
-    templates:
-      metadata:
-        labels:
-          app: nginx
-      spec:
-        conatainers:
-          - name: nginx
-            image: nginx:latest
-            ports:
-              - conatinerPort: 80
+  template:  # Change "templates" to "template"
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:  # Correct "conatainers" to "containers"
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80  # Correct "conatinerPort" to "containerPort"
