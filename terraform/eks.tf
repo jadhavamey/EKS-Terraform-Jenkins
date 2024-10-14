@@ -37,10 +37,11 @@ module "eks" {
 
       instance_types = ["t3.large"]
       capacity_type  = "SPOT"
-
-  node_security_group_tags = {
-  "kubernetes.io/cluster/${local.name}" = null
-  }
     }
+  }
+
+  # Remove tags from node security groups
+  node_security_group_tags = {
+    "kubernetes.io/cluster/${local.name}" = null
   }
 }
