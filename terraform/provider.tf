@@ -6,11 +6,10 @@ locals {
   public_subnets = ["10.123.1.0/24", "10.123.2.0/24"]
   private_subnets = ["10.123.3.0/24", "10.123.4.0/24"]
   intra_subnets  = ["10.123.5.0/24", "10.123.6.0/24"]
-  
-  # You can choose to add or remove tags as needed
+
+  # Keeping only necessary tags
   tags = {
     Name = local.name
-    Environment = "dev"  # Example of additional tag
   }
 }
 
