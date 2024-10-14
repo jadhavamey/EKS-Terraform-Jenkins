@@ -13,11 +13,10 @@ module "vpc" {
 
   enable_nat_gateway = true
 
+  # Remove create_default_security_group if not supported
+  # create_default_security_group = false
+
   tags = {
     Name = local.name
   }
-
-  # Disable unnecessary security group creation by using default settings
-  # (Make sure your use case doesn't require custom security groups)
-  create_default_security_group = false
 }
