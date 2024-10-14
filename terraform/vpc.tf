@@ -5,18 +5,18 @@ module "vpc" {
   name = local.name
   cidr = local.vpc_cidr
 
-  azs = local.azs
-
-  public_subnets  = local.public_subnets
+  azs             = local.azs
   private_subnets = local.private_subnets
+  public_subnets  = local.public_subnets
   intra_subnets   = local.intra_subnets
 
   enable_nat_gateway = true
 
-  # Remove create_default_security_group if not supported
-  # create_default_security_group = false
+  public_subnet_tags = {
+    "kubernetes.io/role/elb" = 1
+  }
 
-  tags = {
-    Name = local.name
+  private_subnet_tags = {
+    "kubernetes.io/role/internal-elb" = 1
   }
 }
