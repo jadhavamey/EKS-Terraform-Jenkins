@@ -40,8 +40,6 @@ module "eks" {
     }
   }
 
-  # Remove tags from node security groups
-  node_security_group_tags = {
-    "kubernetes.io/cluster/${local.name}" = null
-  }
+  # Remove all tags from node security groups
+  node_security_group_tags = {}
 }
