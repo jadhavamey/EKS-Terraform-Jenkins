@@ -16,4 +16,8 @@ module "vpc" {
   tags = {
     Name = local.name
   }
+
+  # Disable unnecessary security group creation by using default settings
+  # (Make sure your use case doesn't require custom security groups)
+  create_default_security_group = false
 }
