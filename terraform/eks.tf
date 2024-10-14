@@ -38,6 +38,9 @@ module "eks" {
       instance_types = ["t3.large"]
       capacity_type  = "SPOT"
 
+    node_security_group_tags = {
+    "kubernetes.io/cluster/${var.cluster_name}" = null
+    }
     }
   }
 }
