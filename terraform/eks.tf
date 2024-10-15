@@ -22,6 +22,7 @@ module "eks" {
   subnet_ids               = module.vpc.private_subnets
   control_plane_subnet_ids = module.vpc.intra_subnets
 
+
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
     instance_types = ["t3.large"]
@@ -38,8 +39,4 @@ module "eks" {
     }
   }
   enable_cluster_creator_admin_permissions = true
-  tags = {
-    Environment = "dev"
-    Terraform   = "true"
-  }
 }
